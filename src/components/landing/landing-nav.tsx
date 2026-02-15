@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, Moon, Sparkles, Sun, X } from "lucide-react";
@@ -47,7 +48,9 @@ export function LandingNav({ navLinks }: LandingNavProps) {
         <Button variant="outline" className="h-9 px-4 text-xs sm:text-sm">
           Sign in
         </Button>
-        <Button className="h-9 px-4 text-xs sm:text-sm">Get started</Button>
+        <Button asChild className="h-9 px-4 text-xs sm:text-sm">
+          <Link href="/signup">Get started</Link>
+        </Button>
       </div>
       <AnimatePresence>
         {mobileMenuOpen ? (
@@ -64,7 +67,9 @@ export function LandingNav({ navLinks }: LandingNavProps) {
                 <Button variant="outline" className="h-10 text-sm">
                   Sign in
                 </Button>
-                <Button className="h-10 text-sm">Get started</Button>
+                <Button asChild className="h-10 text-sm">
+                  <Link href="/signup">Get started</Link>
+                </Button>
               </div>
             </div>
           </motion.div>

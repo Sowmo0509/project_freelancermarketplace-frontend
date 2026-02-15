@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -29,7 +30,9 @@ export function HeroSection({ activeView, content, statements }: HeroSectionProp
             ))}
           </div>
           <div className="flex flex-wrap gap-4">
-            <Button className="h-11 px-6 text-sm sm:h-12 sm:px-8 sm:text-base lg:h-12 lg:px-9 lg:text-base">{content.ctaPrimary}</Button>
+            <Button asChild className="h-11 px-6 text-sm sm:h-12 sm:px-8 sm:text-base lg:h-12 lg:px-9 lg:text-base">
+              <Link href="/signup">{content.ctaPrimary}</Link>
+            </Button>
             <Button variant="outline" className="h-11 px-6 text-sm sm:h-12 sm:px-8 sm:text-base lg:h-12 lg:px-9 lg:text-base">
               {content.ctaSecondary}
             </Button>
