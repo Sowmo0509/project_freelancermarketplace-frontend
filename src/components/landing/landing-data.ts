@@ -48,6 +48,33 @@ export type LandingContent = {
 };
 
 export const navLinks = ["How it works", "Talent", "Projects", "Pricing", "Insights"];
+
+export const platformStats = [
+  {
+    label: "Jobs posted (total)",
+    value: 12400,
+    prefix: "",
+    suffix: "+",
+  },
+  {
+    label: "Total spent",
+    value: 8300000,
+    prefix: "$",
+    suffix: "+",
+  },
+  {
+    label: "Hires every month",
+    value: 1200,
+    prefix: "",
+    suffix: "+",
+  },
+  {
+    label: "Recurring clients every month",
+    value: 68,
+    prefix: "",
+    suffix: "%+",
+  },
+];
 export const heroStatements: Record<ViewKey, string[]> = {
   client: ["Zero platform fees — no 20% cuts.", "Manual verification keeps quality high and hiring fast.", "We do not charge extra when disputes arise.", "Responsive support on every ticket.", "No monopoly systems blocking fresh talent.", "Faster shortlists without waiting weeks."],
   freelancer: ["Keep 100% of earnings — no 20% cuts.", "Equal access for new freelancers from day one.", "No monopoly systems blocking fresh talent.", "Manual verification builds trust and better matches.", "Disputes never trigger extra charges.", "Responsive support on every ticket."],
