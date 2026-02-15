@@ -12,6 +12,17 @@ type PipelineStep = { title: string; description: string; Icon: IconType; image:
 type Service = { label: string; Icon: IconType };
 type ExploreCategory = { label: string; Icon: IconType; image: string };
 type FaqItem = { question: string; answer: string };
+type FeaturedFreelancer = {
+  name: string;
+  role: string;
+  image: string;
+  reviewScore: string;
+  totalEarned: string;
+  jobSuccess: string;
+  bio: string;
+  location: string;
+  hourlyRate: string;
+};
 
 export type LandingContent = {
   title: string;
@@ -25,6 +36,8 @@ export type LandingContent = {
   stats: Stat[];
   valuePropsTitle: string;
   valueProps: ValueProp[];
+  featuredFreelancersTitle: string;
+  featuredFreelancers: FeaturedFreelancer[];
   pipelineTitle: string;
   pipeline: PipelineStep[];
   servicesTitle: string;
@@ -142,6 +155,53 @@ export const clientData: LandingContent = {
       Icon: Users,
     },
   ],
+  featuredFreelancersTitle: "Featured freelancers",
+  featuredFreelancers: [
+    {
+      name: "Amelia Park",
+      role: "Product designer",
+      image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80",
+      reviewScore: "4.9",
+      totalEarned: "$180k+",
+      jobSuccess: "98% job success",
+      bio: "Leads product design for complex SaaS dashboards and mobile apps.",
+      location: "San Francisco, CA",
+      hourlyRate: "$140/hr",
+    },
+    {
+      name: "Luis Romero",
+      role: "Full-stack engineer",
+      image: "https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?auto=format&fit=crop&w=600&q=80",
+      reviewScore: "5.0",
+      totalEarned: "$240k+",
+      jobSuccess: "100% job success",
+      bio: "Builds scalable React, Node, and Next.js products for high-growth teams.",
+      location: "Austin, TX",
+      hourlyRate: "$160/hr",
+    },
+    {
+      name: "Nia Patel",
+      role: "Growth marketer",
+      image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80",
+      reviewScore: "4.8",
+      totalEarned: "$130k+",
+      jobSuccess: "96% job success",
+      bio: "Performance and lifecycle campaigns that compound across paid and email.",
+      location: "London, UK",
+      hourlyRate: "$120/hr",
+    },
+    {
+      name: "Jonas Müller",
+      role: "Brand strategist",
+      image: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=600&q=80",
+      reviewScore: "4.9",
+      totalEarned: "$160k+",
+      jobSuccess: "97% job success",
+      bio: "Helps B2B brands clarify positioning and launch cohesive visual systems.",
+      location: "Berlin, Germany",
+      hourlyRate: "$135/hr",
+    },
+  ],
   pipelineTitle: "How it works",
   pipeline: [
     {
@@ -228,6 +288,53 @@ export const freelancerData: LandingContent = {
       title: "Showcase your best work",
       description: "Custom case-study pages for your portfolio.",
       Icon: Sparkles,
+    },
+  ],
+  featuredFreelancersTitle: "Featured clients",
+  featuredFreelancers: [
+    {
+      name: "Northwind Studio",
+      role: "B2B SaaS product team",
+      image: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=600&q=80",
+      reviewScore: "4.9",
+      totalEarned: "$480k earned",
+      jobSuccess: "98% hire satisfaction",
+      bio: "Shipping complex analytics and workflow tools for mid-market teams.",
+      location: "Seattle, WA",
+      hourlyRate: "$140/hr",
+    },
+    {
+      name: "Harborwave Labs",
+      role: "Engineering-led startup",
+      image: "https://images.unsplash.com/photo-1525134479668-1bee5c7c6845?auto=format&fit=crop&w=600&q=80",
+      reviewScore: "5.0",
+      totalEarned: "$320k earned",
+      jobSuccess: "100% on-time milestones",
+      bio: "Hiring small product squads to ship features in weeks, not quarters.",
+      location: "Toronto, Canada",
+      hourlyRate: "$130/hr",
+    },
+    {
+      name: "Aurora Collective",
+      role: "Brand & content team",
+      image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80",
+      reviewScore: "4.8",
+      totalEarned: "$190k earned",
+      jobSuccess: "95% hire satisfaction",
+      bio: "Long-term brand, content, and campaign partners for growth-stage companies.",
+      location: "New York, NY",
+      hourlyRate: "$120/hr",
+    },
+    {
+      name: "Summit Ventures",
+      role: "Growth-focused fund",
+      image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80",
+      reviewScore: "4.9",
+      totalEarned: "$260k earned",
+      jobSuccess: "97% repeat collaborations",
+      bio: "Brings in specialists across portfolio companies for focused growth sprints.",
+      location: "Remote-first",
+      hourlyRate: "$150/hr",
     },
   ],
   pipelineTitle: "How it works",

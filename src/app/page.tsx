@@ -9,6 +9,7 @@ import { HeroSection } from "@/components/landing/hero-section";
 import { LandingFooter } from "@/components/landing/landing-footer";
 import { LandingNav } from "@/components/landing/landing-nav";
 import { PipelineSection } from "@/components/landing/pipeline-section";
+import { FeaturedFreelancersSection } from "@/components/landing/featured-freelancers-section";
 import { ValueBannerSection } from "@/components/landing/value-banner-section";
 import { ValuePropsSection } from "@/components/landing/value-props-section";
 import { ViewToggle } from "@/components/landing/view-toggle";
@@ -33,6 +34,7 @@ export default function Home() {
             <BrandMarquee brandLogoUrl={brandLogoUrl} />
             <ValuePropsSection content={content} />
             <PipelineSection content={content} />
+            <FeaturedFreelancersSection content={content} />
             <section className="rounded-3xl border border-border bg-card/60 px-5 py-7 sm:px-6 sm:py-9">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                 <div className="flex flex-col gap-2">
