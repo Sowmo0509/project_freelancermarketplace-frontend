@@ -51,7 +51,7 @@ export function LandingNav({ navLinks }: LandingNavProps) {
   return (
     <nav className="flex flex-col gap-3 rounded-3xl border border-border bg-card/60 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-5">
       <div className="flex items-center justify-between sm:hidden">
-        <div className="flex items-center gap-2 text-sm font-semibold text-foreground">
+        <div className="flex items-center gap-2 text-base font-semibold text-foreground">
           <div className="flex h-8 w-8 items-center justify-center rounded-full border border-border bg-background">
             <Sparkles className="h-4 w-4 text-foreground" />
           </div>
@@ -66,13 +66,13 @@ export function LandingNav({ navLinks }: LandingNavProps) {
           </Button>
         </div>
       </div>
-      <div className="hidden items-center gap-2 text-sm font-semibold text-foreground sm:flex">
+      <div className="hidden items-center gap-2 text-base font-semibold text-foreground sm:flex">
         <div className="flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background">
           <Sparkles className="h-4 w-4 text-foreground" />
         </div>
         <span>FreelanceFlow</span>
       </div>
-      <div className="hidden flex-1 items-center justify-center gap-4 text-xs text-muted-foreground sm:flex">
+      <div className="hidden flex-1 items-center justify-center gap-5 text-sm text-muted-foreground sm:flex">
         {navLinks.map((item) => (
           <a key={item} className="transition-colors hover:text-foreground" href="#">
             {item}

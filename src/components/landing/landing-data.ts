@@ -8,8 +8,9 @@ type IconType = ComponentType<{ className?: string }>;
 type Highlight = { label: string; Icon: IconType };
 type Stat = { label: string; value: string; Icon: IconType };
 type ValueProp = { title: string; description: string; Icon: IconType };
-type PipelineStep = { title: string; description: string; Icon: IconType };
+type PipelineStep = { title: string; description: string; Icon: IconType; image: string };
 type Service = { label: string; Icon: IconType };
+type ExploreCategory = { label: string; Icon: IconType; image: string };
 type FaqItem = { question: string; answer: string };
 
 export type LandingContent = {
@@ -44,6 +45,59 @@ export const footerColumns = [
   { title: "Company", links: ["About", "Careers", "Press", "Contact"] },
   { title: "Resources", links: ["Guides", "Success stories", "Support", "Status"] },
   { title: "Legal", links: ["Terms", "Privacy", "Security", "Compliance"] },
+];
+
+export const exploreCategories: ExploreCategory[] = [
+  {
+    label: "Product design",
+    Icon: Sparkles,
+    image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    label: "Brand & identity",
+    Icon: Target,
+    image: "https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    label: "Web development",
+    Icon: Briefcase,
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    label: "Mobile apps",
+    Icon: Rocket,
+    image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    label: "Marketing & growth",
+    Icon: TrendingUp,
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    label: "Content & copywriting",
+    Icon: Search,
+    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    label: "Data & analytics",
+    Icon: Globe,
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    label: "Operations & admin",
+    Icon: Timer,
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    label: "Customer success",
+    Icon: Users,
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80",
+  },
+  {
+    label: "Strategy & consulting",
+    Icon: ShieldCheck,
+    image: "https://images.unsplash.com/photo-1542744173-05336fcc7ad4?auto=format&fit=crop&w=900&q=80",
+  },
 ];
 
 export const clientData: LandingContent = {
@@ -88,11 +142,26 @@ export const clientData: LandingContent = {
       Icon: Users,
     },
   ],
-  pipelineTitle: "A hiring pipeline that removes uncertainty",
+  pipelineTitle: "How it works",
   pipeline: [
-    { title: "Describe the project", description: "Share goals, budget, and timeline.", Icon: Target },
-    { title: "Review vetted talent", description: "Only top candidates reach you.", Icon: CheckCircle2 },
-    { title: "Kickoff in a day", description: "Start work quickly with clear milestones.", Icon: Rocket },
+    {
+      title: "Describe the project",
+      description: "Share goals, budget, and timeline.",
+      Icon: Target,
+      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=80",
+    },
+    {
+      title: "Review vetted talent",
+      description: "Only top candidates reach you.",
+      Icon: CheckCircle2,
+      image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=80",
+    },
+    {
+      title: "Kickoff in a day",
+      description: "Start work quickly with clear milestones.",
+      Icon: Rocket,
+      image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=900&q=80",
+    },
   ],
   servicesTitle: "Popular hiring lanes",
   services: [
@@ -161,11 +230,26 @@ export const freelancerData: LandingContent = {
       Icon: Sparkles,
     },
   ],
-  pipelineTitle: "How you win projects here",
+  pipelineTitle: "How it works",
   pipeline: [
-    { title: "Apply once", description: "We review your profile and work samples.", Icon: CheckCircle2 },
-    { title: "Get matched", description: "We connect you to clients that fit your skills.", Icon: Users },
-    { title: "Deliver with clarity", description: "Projects come with clear goals and scope.", Icon: Rocket },
+    {
+      title: "Apply once",
+      description: "We review your profile and work samples.",
+      Icon: CheckCircle2,
+      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80",
+    },
+    {
+      title: "Get matched",
+      description: "We connect you to clients that fit your skills.",
+      Icon: Users,
+      image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80",
+    },
+    {
+      title: "Deliver with clarity",
+      description: "Projects come with clear goals and scope.",
+      Icon: Rocket,
+      image: "https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?auto=format&fit=crop&w=900&q=80",
+    },
   ],
   servicesTitle: "Specialist growth lanes",
   services: [

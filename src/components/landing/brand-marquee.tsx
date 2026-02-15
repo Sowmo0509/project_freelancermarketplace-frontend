@@ -9,10 +9,10 @@ type BrandMarqueeProps = {
 
 export function BrandMarquee({ brandLogoUrl }: BrandMarqueeProps) {
   return (
-    <section className="flex flex-col gap-3 sm:gap-4">
+    <section className="flex flex-col gap-4 sm:gap-5">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground">Trusted by leading brands</p>
-        <span className="text-xs text-muted-foreground">Always on</span>
+        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground sm:text-sm">Trusted by leading brands</p>
+        <span className="text-xs text-muted-foreground sm:text-sm">Always on</span>
       </div>
       <div className="relative overflow-hidden rounded-3xl border border-border bg-card/60 py-3 sm:py-4">
         <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-background/90 to-transparent sm:w-16" />
