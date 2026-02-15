@@ -49,50 +49,29 @@ export default function SignUpPage() {
     <div className="min-h-screen bg-background text-foreground">
       <div className="mx-auto flex min-h-screen w-full max-w-6xl flex-col px-4 py-10 sm:px-6 sm:py-12 lg:py-20">
         <div className="grid flex-1 gap-8 lg:grid-cols-2">
-          <div className="flex h-full flex-col justify-between rounded-3xl border border-border bg-card/70 p-6 sm:p-8 lg:p-10">
-            <div className="flex flex-col gap-6">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeSlide.src}
-                  initial={{ opacity: 0, y: 14 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -14 }}
-                  transition={{ duration: 0.35, ease: "easeOut" }}
-                  className="flex flex-col gap-6"
-                >
-                  <div className="relative h-64 overflow-hidden rounded-2xl border border-border sm:h-80 lg:h-[360px]">
-                    <Image src={activeSlide.src} alt={activeSlide.title} width={1200} height={800} className="h-full w-full object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                    <div className="absolute bottom-5 left-5 right-5 flex flex-col gap-1 text-white">
-                      <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/80">FreelanceFlow</p>
-                      <p className="text-lg font-semibold sm:text-xl">{activeSlide.title}</p>
-                      <p className="text-sm text-white/80">{activeSlide.description}</p>
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
-              <div className="flex items-center gap-2">
-                {carouselSlides.map((slide, index) => (
-                  <button
-                    key={slide.src}
-                    type="button"
-                    aria-label={`Go to slide ${index + 1}`}
-                    onClick={() => setActiveIndex(index)}
-                    className={cn(
-                      "h-2.5 w-2.5 rounded-full border border-border transition-colors",
-                      index === activeIndex ? "bg-foreground" : "bg-muted"
-                    )}
-                  />
-                ))}
+          <div className="relative h-full overflow-hidden rounded-3xl border border-border">
+            <AnimatePresence mode="wait">
+              <motion.div key={activeSlide.src} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -14 }} transition={{ duration: 0.35, ease: "easeOut" }} className="absolute inset-0">
+                <Image src={activeSlide.src} alt={activeSlide.title} width={1200} height={800} className="h-full w-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-black/10" />
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent" />
+              </motion.div>
+            </AnimatePresence>
+
+            <div className="relative z-10 flex h-full flex-col justify-between p-6 text-white sm:p-8 lg:p-10">
+              <div className="flex flex-col gap-2">
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/80">FreelanceFlow</p>
+                <p className="text-lg font-semibold sm:text-xl">{activeSlide.title}</p>
+                <p className="text-sm text-white/80">{activeSlide.description}</p>
               </div>
-            </div>
-            <div className="flex flex-col gap-2 pt-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">Get started</p>
-              <p className="text-base font-medium text-foreground sm:text-lg">
-                {role === "freelancer"
-                  ? "Create your freelancer profile and start getting matched."
-                  : "Create your client account and start hiring faster."}
-              </p>
+              <div className="flex flex-col gap-4">
+                <p className="text-sm font-medium text-white/90">{role === "freelancer" ? "Create your freelancer profile and start getting matched." : "Create your client account and start hiring faster."}</p>
+                <div className="flex items-center gap-2">
+                  {carouselSlides.map((slide, index) => (
+                    <button key={slide.src} type="button" aria-label={`Go to slide ${index + 1}`} onClick={() => setActiveIndex(index)} className={cn("h-2.5 w-2.5 rounded-full border border-white/60 transition-colors", index === activeIndex ? "bg-white" : "bg-white/30")} />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -104,20 +83,10 @@ export default function SignUpPage() {
             </div>
 
             <div className="flex items-center rounded-full border border-border bg-background p-1">
-              <Button
-                type="button"
-                variant={role === "freelancer" ? "default" : "ghost"}
-                className="flex-1 rounded-full"
-                onClick={() => setRole("freelancer")}
-              >
+              <Button type="button" variant={role === "freelancer" ? "default" : "ghost"} className="flex-1 rounded-full" onClick={() => setRole("freelancer")}>
                 Apply as freelancer
               </Button>
-              <Button
-                type="button"
-                variant={role === "client" ? "default" : "ghost"}
-                className="flex-1 rounded-full"
-                onClick={() => setRole("client")}
-              >
+              <Button type="button" variant={role === "client" ? "default" : "ghost"} className="flex-1 rounded-full" onClick={() => setRole("client")}>
                 Apply as client
               </Button>
             </div>
@@ -171,4 +140,3 @@ export default function SignUpPage() {
     </div>
   );
 }
-
