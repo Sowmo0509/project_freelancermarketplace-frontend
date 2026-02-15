@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import type { LandingContent } from "@/components/landing/landing-data";
+import { SectionHeading } from "@/components/landing/section-heading";
 
 type ValuePropsSectionProps = {
   content: LandingContent;
@@ -11,14 +12,13 @@ export function ValuePropsSection({ content }: ValuePropsSectionProps) {
   return (
     <section className="flex flex-col gap-6 lg:gap-8">
       <div className="flex flex-col gap-4">
-        <p className="text-xs font-semibold uppercase tracking-[0.24em] text-muted-foreground sm:text-sm">{content.valuePropsTitle}</p>
-        <h3 className="text-xl font-semibold text-foreground sm:text-2xl lg:text-3xl">Built for clarity, speed, and trust</h3>
+        <SectionHeading eyebrow={content.valuePropsTitle} title="Built for clarity, speed, and trust" />
 
         <div className="grid gap-3 sm:grid-cols-2">
           {content.gallery.map((image, index) => (
             <div key={image} className="relative overflow-hidden rounded-2xl border border-border bg-background/40">
               <Image src={image} alt="Team collaboration" width={520} height={360} className="h-24 w-full object-cover sm:h-28" />
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
+              <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-background/70 via-transparent to-transparent" />
               <div className="absolute bottom-2 left-2 flex items-center gap-2 rounded-full bg-background/80 px-3 py-1 text-[11px] text-muted-foreground">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                 <span>{index === 0 ? "Live project snapshot" : "Real collaboration in motion"}</span>
