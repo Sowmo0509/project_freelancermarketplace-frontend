@@ -53,16 +53,16 @@ export default function SignUpPage() {
             <AnimatePresence mode="wait">
               <motion.div key={activeSlide.src} initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -14 }} transition={{ duration: 0.35, ease: "easeOut" }} className="absolute inset-0">
                 <Image src={activeSlide.src} alt={activeSlide.title} width={1200} height={800} className="h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-black/10" />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/75 via-black/20 to-black/10" />
+                <div className="absolute inset-0 bg-linear-to-b from-black/60 via-black/20 to-transparent" />
               </motion.div>
             </AnimatePresence>
 
             <div className="relative z-10 flex h-full flex-col justify-between p-6 text-white sm:p-8 lg:p-10">
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-0">
                 <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/80">FreelanceFlow</p>
-                <p className="text-lg font-semibold sm:text-xl">{activeSlide.title}</p>
-                <p className="text-sm text-white/80">{activeSlide.description}</p>
+                <p className="text-lg font-bold sm:text-2xl">{activeSlide.title}</p>
+                <p className="text-base text-white/80">{activeSlide.description}</p>
               </div>
               <div className="flex flex-col gap-4">
                 <p className="text-sm font-medium text-white/90">{role === "freelancer" ? "Create your freelancer profile and start getting matched." : "Create your client account and start hiring faster."}</p>
