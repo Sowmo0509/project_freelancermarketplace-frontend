@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { Menu, Moon, Sparkles, Sun, X } from "lucide-react";
+import { Menu, Sparkles, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "../theme/theme-toggle";
 
@@ -45,8 +45,8 @@ export function LandingNav({ navLinks }: LandingNavProps) {
       </div>
       <div className="hidden items-center gap-2 sm:flex">
         <ThemeToggle />
-        <Button variant="outline" className="h-9 px-4 text-xs sm:text-sm">
-          Sign in
+        <Button asChild variant="outline" className="h-9 px-4 text-xs sm:text-sm">
+          <Link href="/login">Log in</Link>
         </Button>
         <Button asChild className="h-9 px-4 text-xs sm:text-sm">
           <Link href="/signup">Get started</Link>
