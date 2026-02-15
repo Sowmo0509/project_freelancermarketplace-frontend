@@ -33,7 +33,7 @@ export default function Home() {
           <motion.section key={activeView} id={activeView === "client" ? "client-panel" : "freelancer-panel"} role="tabpanel" aria-labelledby={activeView === "client" ? "client-tab" : "freelancer-tab"} initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.35, ease: "easeOut" }} className="flex flex-col gap-10 sm:gap-12 lg:gap-16">
             <HeroSection activeView={activeView} content={content} statements={heroStatements[activeView].slice(0, 3)} />
             <BrandMarquee />
-            <StatsSection />
+            <StatsSection view={activeView} />
             <ValuePropsSection content={content} />
             <PipelineSection content={content} />
             <FeaturedFreelancersSection content={content} />

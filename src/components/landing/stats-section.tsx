@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { ArrowRight, CalendarDays, LucideIcon, ShoppingBag } from "lucide-react";
+import { CalendarDays, LucideIcon, ShoppingBag } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { SectionHeading } from "./section-heading";
+import type { ViewKey } from "@/components/landing/landing-data";
 
 type DashboardMetric = {
   label: string;
@@ -28,14 +28,13 @@ type StatItem = {
   isPositive?: boolean;
 };
 
-type StatisticsBlock01Props = {
-  mainDashboard?: MainDashboardData;
-  secondaryStats?: StatItem[];
+type StatsSectionProps = {
+  view: ViewKey;
 };
 
-const mainDashboardData: MainDashboardData = {
+const clientMainDashboardData: MainDashboardData = {
   title: "Clients saving money on every project",
-  description: "Compared to Others that charge up to 25% platform fees on earnings.",
+  description: "Compared to others that charge up to 25% platform fees on earnings.",
   metrics: [
     {
       label: "Total Spent",
@@ -52,7 +51,26 @@ const mainDashboardData: MainDashboardData = {
   ],
 };
 
-const secondaryStatsData: StatItem[] = [
+const freelancerMainDashboardData: MainDashboardData = {
+  title: "Freelancers keeping more of what they earn",
+  description: "No platform commission taken from your payouts or hourly rates.",
+  metrics: [
+    {
+      label: "Total Earned",
+      amount: 6150000,
+      percentage: "+22%",
+      isPositive: true,
+    },
+    {
+      label: "Total Kept",
+      amount: 0,
+      percentage: "100%",
+      isPositive: true,
+    },
+  ],
+};
+
+const clientSecondaryStatsData: StatItem[] = [
   {
     title: "Jobs posted this year",
     value: "67,322",
@@ -69,6 +87,23 @@ const secondaryStatsData: StatItem[] = [
   },
 ];
 
+const freelancerSecondaryStatsData: StatItem[] = [
+  {
+    title: "Projects completed this year",
+    value: "42,180",
+    percentage: "+27%",
+    icon: CalendarDays,
+    isPositive: true,
+  },
+  {
+    title: "Freelancers with recurring work",
+    value: "3,450",
+    percentage: "+21%",
+    icon: ShoppingBag,
+    isPositive: true,
+  },
+];
+
 function formatCompactNumber(amount: number) {
   if (amount >= 1_000_000) {
     return `${(amount / 1_000_000).toFixed(1).replace(/\.0$/, "")}M`;
@@ -79,12 +114,18 @@ function formatCompactNumber(amount: number) {
   return amount.toLocaleString();
 }
 
-const StatsSection = ({ mainDashboard = mainDashboardData, secondaryStats = secondaryStatsData }: StatisticsBlock01Props) => {
-  const spendingMetric = mainDashboard.metrics.find((metric) => metric.label === "Total Spent");
+const StatsSection = ({ view }: StatsSectionProps) => {
+  const mainDashboard = view === "client" ? clientMainDashboardData : freelancerMainDashboardData;
+  const secondaryStats = view === "client" ? clientSecondaryStatsData : freelancerSecondaryStatsData;
+
+  const baseLabel = view === "client" ? "Total Spent" : "Total Earned";
+  const savedLabel = view === "client" ? "Total Saved" : "Total Kept";
+
+  const spendingMetric = mainDashboard.metrics.find((metric) => metric.label === baseLabel);
   const spendingAmount = spendingMetric?.amount ?? 0;
 
   const computedMetrics = mainDashboard.metrics.map((metric) => {
-    if (metric.label === "Total Saved") {
+    if (metric.label === savedLabel) {
       return {
         ...metric,
         amount: spendingAmount * 0.4,
@@ -96,7 +137,7 @@ const StatsSection = ({ mainDashboard = mainDashboardData, secondaryStats = seco
 
   return (
     <div className="flex flex-col items-start justify-center w-full">
-      <SectionHeading eyebrow={"Everyday Analytics"} title="Our stats reflect everything" />
+      <SectionHeading eyebrow={"Everyday Analytics"} title={view === "client" ? "Our stats reflect smarter client spend" : "Our stats reflect better freelancer earnings"} />
 
       <div className="py-4 w-full">
         <div className="grid grid-cols-12 gap-6 h-full">
@@ -140,7 +181,7 @@ const StatsSection = ({ mainDashboard = mainDashboardData, secondaryStats = seco
                         <Badge className={cn("font-normal text-muted-foreground", stat.isPositive !== false ? "bg-teal-400/10" : "bg-red-500/10")}>{stat.percentage}</Badge>
                       </div>
                     </div>
-                    <p className="text-sm">{index === 0 ? "Without any commison" : "Saving 20% fee always"}</p>
+                    <p className="text-sm text-muted-foreground">{view === "client" ? (index === 0 ? "Post jobs without platform commission." : "Keep 20–40% of your budget in savings.") : index === 0 ? "Win projects without giving up a fee cut." : "Keep 100% of the rate you charge."}</p>
                   </div>
                   <div className="p-3 rounded-full outline">
                     <stat.icon size={16} />
