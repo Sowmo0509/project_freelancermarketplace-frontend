@@ -2,6 +2,7 @@
 
 import type { LandingContent } from "@/components/landing/landing-data";
 import { SectionHeading } from "@/components/landing/section-heading";
+import { SectionCard } from "@/components/landing/section-card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 type FaqSectionProps = {
@@ -10,7 +11,7 @@ type FaqSectionProps = {
 
 export function FaqSection({ content }: FaqSectionProps) {
   return (
-    <section className="grid gap-7 rounded-3xl border border-border bg-card/60 px-5 py-7 sm:px-6 sm:py-9 lg:grid-cols-[0.9fr_1.1fr]">
+    <SectionCard className="grid gap-7 lg:grid-cols-[0.9fr_1.1fr]">
       <div className="flex flex-col gap-2.5">
         <SectionHeading eyebrow={content.faqTitle} title="Answers that keep expectations aligned" />
         <p className="text-xs text-muted-foreground sm:text-sm">Clear answers, clear workflows, and everything tracked from day one.</p>
@@ -23,6 +24,6 @@ export function FaqSection({ content }: FaqSectionProps) {
           </AccordionItem>
         ))}
       </Accordion>
-    </section>
+    </SectionCard>
   );
 }

@@ -3,10 +3,11 @@
 import Image from "next/image";
 import { exploreCategories } from "@/components/landing/landing-data";
 import { SectionHeading } from "@/components/landing/section-heading";
+import { SectionCard } from "@/components/landing/section-card";
 
 export function ExploreCategoriesSection() {
   return (
-    <section className="rounded-3xl border border-border bg-card/60 px-5 py-7 sm:px-6 sm:py-9">
+    <SectionCard>
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div className="flex flex-col gap-2">
           <SectionHeading eyebrow="Browse categories" title="Explore millions of pros" />
@@ -25,6 +26,6 @@ export function ExploreCategoriesSection() {
           </button>
         ))}
       </div>
-    </section>
+    </SectionCard>
   );
 }

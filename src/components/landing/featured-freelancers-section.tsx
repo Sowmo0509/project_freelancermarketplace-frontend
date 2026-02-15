@@ -4,6 +4,7 @@ import Image from "next/image";
 import { CheckCircle2 } from "lucide-react";
 import type { LandingContent } from "@/components/landing/landing-data";
 import { SectionHeading } from "@/components/landing/section-heading";
+import { SectionCard } from "@/components/landing/section-card";
 
 type FeaturedFreelancersSectionProps = {
   content: LandingContent;
@@ -13,7 +14,7 @@ export function FeaturedFreelancersSection({ content }: FeaturedFreelancersSecti
   const isClientView = content.title.includes("Hire");
 
   return (
-    <section className="rounded-3xl border border-border bg-card/60 px-5 py-7 sm:px-6 sm:py-9">
+    <SectionCard>
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div className="flex flex-col gap-2">
           <SectionHeading eyebrow={content.featuredFreelancersTitle} title={isClientView ? "Proven freelancers ready to join your projects" : "Premium clients investing in long-term work"} />
@@ -67,6 +68,6 @@ export function FeaturedFreelancersSection({ content }: FeaturedFreelancersSecti
           );
         })}
       </div>
-    </section>
+    </SectionCard>
   );
 }

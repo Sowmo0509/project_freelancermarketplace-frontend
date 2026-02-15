@@ -3,6 +3,7 @@
 import Image from "next/image";
 import type { LandingContent } from "@/components/landing/landing-data";
 import { SectionHeading } from "@/components/landing/section-heading";
+import { SectionCard } from "@/components/landing/section-card";
 
 type PipelineSectionProps = {
   content: LandingContent;
@@ -10,7 +11,7 @@ type PipelineSectionProps = {
 
 export function PipelineSection({ content }: PipelineSectionProps) {
   return (
-    <section className="flex flex-col gap-5 rounded-3xl border border-border bg-card/60 px-5 py-7 sm:px-6 sm:py-9">
+    <SectionCard className="flex flex-col gap-5">
       <div className="flex flex-col gap-2.5">
         <SectionHeading eyebrow={content.pipelineTitle} title="3 Easy Steps to Get Started" />
         <p className="text-xs text-muted-foreground sm:text-sm">Three clear steps tailored to {content.title.includes("Hire") ? "clients" : "freelancers"} so you always know what happens next.</p>
@@ -28,6 +29,6 @@ export function PipelineSection({ content }: PipelineSectionProps) {
           </div>
         ))}
       </div>
-    </section>
+    </SectionCard>
   );
 }
