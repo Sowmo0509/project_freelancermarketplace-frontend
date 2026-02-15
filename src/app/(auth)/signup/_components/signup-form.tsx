@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Combobox, ComboboxContent, ComboboxEmpty, ComboboxInput, ComboboxItem, ComboboxList } from "@/components/ui/combobox";
 import { Input } from "@/components/ui/input";
 import { PasswordInput, PasswordInputStrengthChecker } from "@/components/ui/password-input";
@@ -71,7 +72,12 @@ export function SignUpForm({ country, onCountryChange, countryOptions }: SignUpF
         </div>
       </div>
       <Button className="h-11 w-full">Create account</Button>
+      <div className="flex items-center justify-center text-sm text-muted-foreground">
+        <span>Already have an account?</span>
+        <Link href="/login" className="ml-1 font-medium text-primary underline-offset-4 hover:underline">
+          Log in
+        </Link>
+      </div>
     </form>
   );
 }
-
