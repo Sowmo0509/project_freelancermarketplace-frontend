@@ -48,7 +48,6 @@ export type LandingContent = {
 };
 
 export const navLinks = ["How it works", "Talent", "Projects", "Pricing", "Insights"];
-export const brandLogoUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Adidas_Logo.svg/1280px-Adidas_Logo.svg.png";
 export const heroStatements: Record<ViewKey, string[]> = {
   client: ["Zero platform fees — no 20% cuts.", "Manual verification keeps quality high and hiring fast.", "We do not charge extra when disputes arise.", "Responsive support on every ticket.", "No monopoly systems blocking fresh talent.", "Faster shortlists without waiting weeks."],
   freelancer: ["Keep 100% of earnings — no 20% cuts.", "Equal access for new freelancers from day one.", "No monopoly systems blocking fresh talent.", "Manual verification builds trust and better matches.", "Disputes never trigger extra charges.", "Responsive support on every ticket."],
