@@ -8,6 +8,15 @@ type ViewToggleProps = {
   onChange: (view: ViewKey) => void;
 };
 
+/**
+ * Render a two-option segmented control that switches between the client and freelancer landing views.
+ *
+ * The control reflects selection with accessible attributes and invokes `onChange` when a tab is activated.
+ *
+ * @param activeView - The currently selected view key, either `"client"` or `"freelancer"`.
+ * @param onChange - Callback called with the chosen `ViewKey` when the user selects a different tab.
+ * @returns A header element containing the accessible view-toggle tabs.
+ */
 export function ViewToggle({ activeView, onChange }: ViewToggleProps) {
   return (
     <header className="flex flex-col items-center gap-5 sm:gap-7">

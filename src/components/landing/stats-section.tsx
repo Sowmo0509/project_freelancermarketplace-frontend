@@ -104,6 +104,12 @@ const freelancerSecondaryStatsData: StatItem[] = [
   },
 ];
 
+/**
+ * Formats a numeric amount into a compact, human-readable string (for example, `1.2M` or `9.3K`).
+ *
+ * @param amount - The numeric value to format.
+ * @returns A compact string: values >= 1,000,000 use `M`, values >= 1,000 use `K` (both with one decimal precision and any trailing `.0` removed), otherwise the locale-formatted number.
+ */
 function formatCompactNumber(amount: number) {
   if (amount >= 1_000_000) {
     return `${(amount / 1_000_000).toFixed(1).replace(/\.0$/, "")}M`;

@@ -7,6 +7,15 @@ type ServicesSectionProps = {
   content: LandingContent;
 };
 
+/**
+ * Renders a services section with a heading and a responsive list of service chips.
+ *
+ * The heading's eyebrow text is taken from `content.servicesTitle`. Each entry in
+ * `content.services` is rendered as a rounded chip showing the service `Icon` and `label`.
+ *
+ * @param content - Landing content object containing `servicesTitle` and a `services` array of items with `label` and `Icon`
+ * @returns A JSX element containing the section with heading and service chips
+ */
 export function ServicesSection({ content }: ServicesSectionProps) {
   return (
     <section className="flex flex-col gap-5">

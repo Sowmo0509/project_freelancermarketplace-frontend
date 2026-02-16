@@ -9,6 +9,15 @@ import { SignUpForm } from "@/app/(auth)/signup/_components/signup-form";
 
 type Role = "freelancer" | "client";
 
+/**
+ * Render the sign-up page for selecting a user role and entering country information.
+ *
+ * Manages local `role` and `country` state, derives an alphabetized list of country names for selection,
+ * computes a contextual subtitle based on the selected role, and renders the authentication layout
+ * with header, role toggle, and sign-up form wired to the component state.
+ *
+ * @returns A React element representing the sign-up page.
+ */
 export default function SignUpPage() {
   const [role, setRole] = useState<Role>("freelancer");
   const [country, setCountry] = useState("");

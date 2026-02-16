@@ -10,6 +10,14 @@ type FeaturedFreelancersSectionProps = {
   content: LandingContent;
 };
 
+/**
+ * Renders a featured freelancers section populated from the provided landing content.
+ *
+ * The header text and the progress label switch between a "client" and "client-facing" view depending on whether `content.title` contains the substring "Hire". Up to three entries from `content.featuredFreelancers` are shown; each card displays avatar, name, location, bio, role badge, hourly rate, total earned, and a progress bar derived from `freelancer.jobSuccess` (falls back to 0 when not a valid integer).
+ *
+ * @param content - Landing content used to populate headings and the list of featured freelancers (expects `featuredFreelancers` with fields: `name`, `image`, `location`, `bio`, `role`, `hourlyRate`, `totalEarned`, `jobSuccess`).
+ * @returns The JSX element for the featured freelancers section.
+ */
 export function FeaturedFreelancersSection({ content }: FeaturedFreelancersSectionProps) {
   const isClientView = content.title.includes("Hire");
 

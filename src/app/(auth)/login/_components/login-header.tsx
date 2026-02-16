@@ -1,5 +1,10 @@
 "use client";
 
+/**
+ * Presentational header for the login page containing a label, main heading, and helper text.
+ *
+ * @returns A React element that renders an uppercase "Log in" label, a "Welcome back" heading, and a helper line prompting the user to enter their details.
+ */
 export function LoginHeader() {
   return (
     <div className="flex flex-col gap-2">
@@ -9,4 +14,3 @@ export function LoginHeader() {
     </div>
   );
 }
-

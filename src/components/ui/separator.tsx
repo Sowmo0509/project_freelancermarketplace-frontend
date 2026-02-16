@@ -5,6 +5,13 @@ import { Separator as SeparatorPrimitive } from "radix-ui"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Render a visual separator line that adapts to horizontal or vertical orientation and can be marked decorative for accessibility.
+ *
+ * @param orientation - Layout orientation of the separator; either `"horizontal"` or `"vertical"`. Defaults to `"horizontal"`.
+ * @param decorative - When `true`, marks the separator as decorative for assistive technology. Defaults to `true`.
+ * @returns The rendered separator element.
+ */
 function Separator({
   className,
   orientation = "horizontal",

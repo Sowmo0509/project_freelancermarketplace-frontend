@@ -13,6 +13,11 @@ const brandLogoData = brandLogos.map((file) => {
   };
 });
 
+/**
+ * Renders a horizontally scrolling marquee of brand logos with decorative edges and header text.
+ *
+ * @returns A JSX.Element containing the marquee layout: a header row and a scrolling container that duplicates the logo group to produce a continuous loop. 
+ */
 export function BrandMarquee() {
   return (
     <section className="flex flex-col gap-4 sm:gap-5">

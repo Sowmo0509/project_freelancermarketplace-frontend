@@ -29,6 +29,18 @@ import {
 
 const PasswordInputContext = createContext<{ password: string } | null>(null)
 
+/**
+ * A password input with a toggle to show or hide the value and a context that exposes the current password.
+ *
+ * The component renders an input with an inline button to switch between "password" and "text", and provides
+ * the current input string via PasswordInputContext for consumers such as strength checkers.
+ *
+ * @param children - Optional nodes rendered below the input group (e.g., helper UI or strength checker).
+ * @param onChange - Change handler forwarded to the underlying input; invoked for both controlled and uncontrolled usage.
+ * @param value - If provided, the component is controlled and this value is used as the input content.
+ * @param defaultValue - Initial value used when the component is uncontrolled.
+ * @returns The PasswordInput React element.
+ */
 export function PasswordInput({
   children,
   onChange,
@@ -78,6 +90,15 @@ export function PasswordInput({
   )
 }
 
+/**
+ * Renders a password strength meter and descriptive label for the current PasswordInput value.
+ *
+ * The component computes a strength score (0–4) for the password obtained from PasswordInputContext,
+ * dynamically loads zxcvbn language assets for evaluation, and displays a four-segment progress bar
+ * plus a right-aligned label. If zxcvbn provides a warning, the label is shown with a tooltip containing that warning.
+ *
+ * @returns A React element containing the strength bar and label, or `null` if loading the strength-checker assets fails.
+ */
 export function PasswordInputStrengthChecker() {
   const [optionsLoaded, setOptionsLoaded] = useState(false)
   const [errorLoadingOptions, setErrorLoadingOptions] = useState(false)

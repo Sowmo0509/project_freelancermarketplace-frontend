@@ -9,6 +9,12 @@ type PipelineSectionProps = {
   content: LandingContent;
 };
 
+/**
+ * Render a three-step pipeline section for a landing page using the provided content.
+ *
+ * @param content - Landing content that provides the section eyebrow (`pipelineTitle`), the page `title` (used to vary copy between "clients" and "freelancers"), and `pipeline` — an array of steps where each step includes `image`, `title`, and `description`.
+ * @returns A JSX element containing a heading, a short descriptive paragraph, and a responsive 3-column grid of step cards each showing an image, a step title, and a step description.
+ */
 export function PipelineSection({ content }: PipelineSectionProps) {
   return (
     <SectionCard className="flex flex-col gap-5">

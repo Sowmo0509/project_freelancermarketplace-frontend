@@ -16,6 +16,13 @@ import { ExploreCategoriesSection } from "@/components/landing/explore-categorie
 import { StatsSection } from "@/components/landing/stats-section";
 import { clientData, footerColumns, freelancerData, heroStatements, navLinks, type ViewKey } from "@/components/landing/landing-data";
 
+/**
+ * Renders the landing page with a client/freelancer view toggle and animated content panels.
+ *
+ * The component maintains the active view state, derives the corresponding content, and animates remounting of the main content panel when the view changes. It composes navigation, hero, brand marquee, stats, value props, pipeline, featured freelancers, categories, FAQ, banner sections, and the footer.
+ *
+ * @returns The React element tree for the landing page.
+ */
 export default function Home() {
   const [activeView, setActiveView] = useState<ViewKey>("client");
 

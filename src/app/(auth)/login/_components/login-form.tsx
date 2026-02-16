@@ -6,6 +6,13 @@ import { Input } from "@/components/ui/input";
 import { PasswordInput } from "@/components/ui/password-input";
 import { Label } from "@/components/ui/label";
 
+/**
+ * Render a presentational login form with email and password fields, a "Forgot password?" link, a submit button, and a sign-up prompt.
+ *
+ * This component is purely presentational: it provides UI elements and layout but does not manage state, validation, or form submission handlers.
+ *
+ * @returns A JSX element containing the structured login form layout
+ */
 export function LoginForm() {
   return (
     <form className="flex flex-col gap-4">

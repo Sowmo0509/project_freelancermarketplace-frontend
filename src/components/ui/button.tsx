@@ -31,6 +31,14 @@ const buttonVariants = cva("inline-flex cursor-pointer items-center justify-cent
   },
 });
 
+/**
+ * Render a button element styled by the configured variant and size, or render the provided child element with those styles when `asChild` is true.
+ *
+ * @param variant - Visual style of the button. One of: `default`, `destructive`, `outline`, `secondary`, `ghost`, `link`.
+ * @param size - Size preset for the button. One of: `default`, `xs`, `sm`, `lg`, `icon`, `icon-xs`, `icon-sm`, `icon-lg`.
+ * @param asChild - If `true`, render a `Slot.Root` that applies the button styles to a child element instead of rendering a native `button`.
+ * @returns A React element representing the styled button (or the styled child slot when `asChild` is `true`).
+ */
 function Button({
   className,
   variant = "default",

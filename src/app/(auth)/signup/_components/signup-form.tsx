@@ -14,6 +14,14 @@ type SignUpFormProps = {
   countryOptions: string[];
 };
 
+/**
+ * Renders a sign-up form with first/last name, email, password (with strength checker), confirm password, country selector, consent/newsletter checkboxes, and submit/login controls.
+ *
+ * @param country - Currently selected country value for the country Combobox.
+ * @param onCountryChange - Callback invoked with the new country value or an empty string when cleared.
+ * @param countryOptions - Array of country names to display in the country Combobox.
+ * @returns The form element containing all sign-up inputs and controls.
+ */
 export function SignUpForm({ country, onCountryChange, countryOptions }: SignUpFormProps) {
   return (
     <form className="flex flex-col gap-4">

@@ -2,6 +2,12 @@ import * as React from "react"
 
 import { cn } from "@/lib/utils"
 
+/**
+ * Renders a textarea with consistent default styling while forwarding all received props to the native element.
+ *
+ * @param className - Optional additional CSS classes that are merged with the component's default styling
+ * @returns A textarea element with the component's default classes applied and any provided props forwarded
+ */
 function Textarea({ className, ...props }: React.ComponentProps<"textarea">) {
   return (
     <textarea

@@ -8,6 +8,12 @@ type ValueBannerSectionProps = {
   content: LandingContent;
 };
 
+/**
+ * Renders an animated value banner section with a heading and primary/secondary CTAs.
+ *
+ * @param content - LandingContent providing `valueBanner` (heading text), `ctaPrimary` (primary button text), and `ctaSecondary` (secondary button text).
+ * @returns A JSX element: a section containing the banner heading and two call-to-action buttons.
+ */
 export function ValueBannerSection({ content }: ValueBannerSectionProps) {
   return (
     <motion.section initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.35, ease: "easeOut" }} className="flex flex-col gap-4 rounded-3xl border border-border bg-card/60 px-5 py-7 text-center sm:px-6 sm:py-8">

@@ -8,6 +8,19 @@ type ValuePropsSectionProps = {
   content: LandingContent;
 };
 
+/**
+ * Render the landing page "value props" section with a gallery and feature cards.
+ *
+ * Renders a SectionHeading using `content.valuePropsTitle`, a responsive image gallery from `content.gallery`
+ * where the first image is labeled "Live project snapshot" and subsequent images are labeled "Real collaboration in motion",
+ * and a grid of feature cards from `content.valueProps` that display an icon, title, and description.
+ *
+ * @param content - Landing content object containing:
+ *   - `valuePropsTitle`: eyebrow text for the section heading
+ *   - `gallery`: array of image source strings for the gallery
+ *   - `valueProps`: array of feature objects with `title`, `description`, and `Icon` component
+ * @returns A section element containing the image gallery and feature cards
+ */
 export function ValuePropsSection({ content }: ValuePropsSectionProps) {
   return (
     <section className="flex flex-col gap-6 lg:gap-8">

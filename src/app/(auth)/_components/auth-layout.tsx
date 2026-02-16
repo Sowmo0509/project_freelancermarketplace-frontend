@@ -31,6 +31,15 @@ type AuthLayoutProps = {
   children: ReactNode;
 };
 
+/**
+ * Layout component that displays an authentication carousel alongside a content panel.
+ *
+ * Automatically advances the carousel every 5.5 seconds and exposes the current slide index to the carousel panel.
+ *
+ * @param subtitle - Text passed to the carousel panel, shown beneath the carousel title
+ * @param children - Content rendered inside the right-side card (e.g., sign-in or sign-up form)
+ * @returns The rendered authentication layout as a JSX element
+ */
 export function AuthLayout({ subtitle, children }: AuthLayoutProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 

@@ -5,6 +5,13 @@ type SectionHeadingProps = {
   title: string;
 };
 
+/**
+ * Renders a section heading with an eyebrow label above a larger title.
+ *
+ * @param eyebrow - Small, uppercase label displayed above the title
+ * @param title - Main heading text displayed prominently
+ * @returns A JSX element containing the eyebrow and title elements
+ */
 export function SectionHeading({ eyebrow, title }: SectionHeadingProps) {
   return (
     <div>

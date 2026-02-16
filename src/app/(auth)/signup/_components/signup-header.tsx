@@ -1,5 +1,10 @@
 "use client";
 
+/**
+ * Renders the sign-up header used on the account creation page.
+ *
+ * @returns The JSX element containing an uppercase label, the main heading "Join FreelanceFlow", and a short descriptive paragraph.
+ */
 export function SignUpHeader() {
   return (
     <div className="flex flex-col gap-2">
@@ -9,4 +14,3 @@ export function SignUpHeader() {
     </div>
   );
 }
-

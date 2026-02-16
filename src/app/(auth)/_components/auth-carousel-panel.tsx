@@ -17,6 +17,15 @@ type AuthCarouselPanelProps = {
   subtitle: string;
 };
 
+/**
+ * Render a carousel panel that displays the currently active slide image with layered overlays, title, description, a subtitle, and clickable indicators to change slides.
+ *
+ * @param slides - Array of slide objects each containing `src`, `title`, and `description`
+ * @param activeIndex - Index of the currently visible slide in `slides`
+ * @param onSelectIndex - Callback invoked with the new slide index when an indicator is clicked
+ * @param subtitle - Small text displayed above the slide indicators
+ * @returns The carousel panel element showing the active slide, its caption, and interactive indicators
+ */
 export function AuthCarouselPanel({ slides, activeIndex, onSelectIndex, subtitle }: AuthCarouselPanelProps) {
   const activeSlide = slides[activeIndex];
 

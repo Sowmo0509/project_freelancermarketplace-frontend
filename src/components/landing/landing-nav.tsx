@@ -11,6 +11,14 @@ type LandingNavProps = {
   navLinks: string[];
 };
 
+/**
+ * Render a responsive landing navigation bar with brand, center links, theme toggle, and authentication actions.
+ *
+ * The component displays a compact header with a theme toggle and a hamburger menu on small screens, and a full horizontal navigation with "Log in" and "Get started" actions on larger screens. The mobile menu expands/collapses and the toggle button exposes its state via `aria-expanded`.
+ *
+ * @param navLinks - Array of navigation item labels to render as center navigation links
+ * @returns A responsive navigation bar element
+ */
 export function LandingNav({ navLinks }: LandingNavProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 

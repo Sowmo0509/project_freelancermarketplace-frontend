@@ -5,6 +5,13 @@ import { exploreCategories } from "@/components/landing/landing-data";
 import { SectionHeading } from "@/components/landing/section-heading";
 import { SectionCard } from "@/components/landing/section-card";
 
+/**
+ * Renders a responsive section titled "Explore millions of pros" that displays a heading, descriptive text, and a grid of category buttons.
+ *
+ * Each button shows the category image, an icon badge, and the category label; the grid adapts from 2 to 5 columns across breakpoints.
+ *
+ * @returns A JSX element containing the section with heading, descriptive copy, and a responsive grid of category buttons.
+ */
 export function ExploreCategoriesSection() {
   return (
     <SectionCard>

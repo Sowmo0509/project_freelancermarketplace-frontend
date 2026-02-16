@@ -9,6 +9,13 @@ type RoleToggleProps = {
   onChange: (role: Role) => void;
 };
 
+/**
+ * Render a two-option toggle for selecting either the "freelancer" or "client" role.
+ *
+ * @param role - The currently selected role, either `"freelancer"` or `"client"`.
+ * @param onChange - Callback invoked with the newly selected role when a button is clicked.
+ * @returns The rendered toggle element.
+ */
 export function SignUpRoleToggle({ role, onChange }: RoleToggleProps) {
   return (
     <div className="flex items-center rounded-full border border-border bg-background p-1">
@@ -31,4 +38,3 @@ export function SignUpRoleToggle({ role, onChange }: RoleToggleProps) {
     </div>
   );
 }
-

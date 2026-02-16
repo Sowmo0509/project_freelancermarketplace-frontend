@@ -11,6 +11,15 @@ type LandingFooterProps = {
   columns: FooterColumn[];
 };
 
+/**
+ * Render a stylized landing-page footer driven by the supplied column definitions.
+ *
+ * Renders a brand block (icon, name, description, contact) and a responsive grid of link columns;
+ * the layout includes a bottom meta row with copyright and short notes.
+ *
+ * @param columns - Array of footer column objects, each with a `title` and an array of `links` to render as anchor items
+ * @returns A JSX footer element containing the brand block, a responsive multi-column list of links, and footer meta information
+ */
 export function LandingFooter({ columns }: LandingFooterProps) {
   return (
     <footer className="mt-4 rounded-3xl border border-border bg-card/60 px-5 py-8 sm:px-6 sm:py-9">

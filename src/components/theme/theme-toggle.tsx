@@ -7,6 +7,13 @@ import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 
+/**
+ * Renders a dropdown theme selector that lets the user choose light, dark, or system theme.
+ *
+ * The trigger button displays sun and moon icons that visually swap based on the active theme; selecting an option calls the theme setter to apply that theme.
+ *
+ * @returns A React element containing the theme toggle button and dropdown menu with "Light", "Dark", and "System" options.
+ */
 export function ThemeToggle() {
   const { setTheme } = useTheme();
 

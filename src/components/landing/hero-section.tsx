@@ -12,6 +12,14 @@ type HeroSectionProps = {
   statements: string[];
 };
 
+/**
+ * Renders the landing page hero section with title, subtitle, a list of highlight statements, primary and secondary CTAs, and a side image with caption.
+ *
+ * @param activeView - "client" or "freelancer"; selects the small uppercase label displayed above the title.
+ * @param content - Hero content including title, subtitle, ctaPrimary, ctaSecondary, and sideImage.
+ * @param statements - Array of strings rendered as a vertical list of statement headings.
+ * @returns The hero section React element.
+ */
 export function HeroSection({ activeView, content, statements }: HeroSectionProps) {
   return (
     <section className="rounded-3xl border border-border bg-card/70 px-5 py-10 sm:px-8 sm:py-12 lg:px-16 lg:py-20">
