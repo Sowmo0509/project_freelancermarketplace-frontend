@@ -10,7 +10,7 @@ import { SignUpForm } from "@/app/(auth)/signup/_components/signup-form";
 type Role = "freelancer" | "client";
 
 export default function SignUpPage() {
-  const [role, setRole] = useState<Role>("freelancer");
+  const [role, setRole] = useState<Role>("client");
   const [country, setCountry] = useState("");
   const countryOptions = useMemo(() => {
     return Object.values(countries)
@@ -18,10 +18,7 @@ export default function SignUpPage() {
       .sort((a, b) => a.localeCompare(b));
   }, []);
 
-  const subtitle =
-    role === "freelancer"
-      ? "Create your freelancer profile and start getting matched."
-      : "Create your client account and start hiring faster.";
+  const subtitle = role === "freelancer" ? "Create your freelancer profile and start getting matched." : "Create your client account and start hiring faster.";
 
   return (
     <AuthLayout subtitle={subtitle}>
