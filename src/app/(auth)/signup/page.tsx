@@ -24,7 +24,7 @@ export default function SignUpPage() {
     <AuthLayout subtitle={subtitle}>
       <SignUpHeader />
       <SignUpRoleToggle role={role} onChange={setRole} />
-      <SignUpForm country={country} onCountryChange={setCountry} countryOptions={countryOptions} />
+      <SignUpForm country={country} onCountryChange={setCountry} countryOptions={countryOptions} role={role} />
     </AuthLayout>
   );
 }
