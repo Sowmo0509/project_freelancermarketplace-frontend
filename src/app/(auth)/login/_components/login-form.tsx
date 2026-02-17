@@ -56,7 +56,7 @@ export function LoginForm() {
       const response = await apiClient.post("/api/auth/sign-in/email", {
         email: parsed.data.email,
         password: parsed.data.password,
-        callbackURL: "/",
+        callbackURL: "/app",
       });
 
       const responseBody = response.data as { message?: string } | null;
@@ -68,7 +68,7 @@ export function LoginForm() {
       }
 
       toast.success("Logged in successfully.");
-      router.push("/");
+      router.push("/app");
     } catch (error) {
       setFormError(error instanceof Error ? error.message : "Unable to log in right now.");
     } finally {
