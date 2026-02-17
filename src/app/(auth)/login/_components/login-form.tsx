@@ -2,7 +2,7 @@
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
@@ -20,6 +20,8 @@ type LoginValues = z.infer<typeof loginSchema>;
 
 export function LoginForm() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get("redirect") || "/app";
   const [values, setValues] = useState<LoginValues>({
     email: "",
     password: "",
@@ -56,7 +58,7 @@ export function LoginForm() {
       const response = await apiClient.post("/api/auth/sign-in/email", {
         email: parsed.data.email,
         password: parsed.data.password,
-        callbackURL: "/app",
+        callbackURL: redirectTo,
       });
 
       const responseBody = response.data as { message?: string } | null;
@@ -68,7 +70,7 @@ export function LoginForm() {
       }
 
       toast.success("Logged in successfully.");
-      router.push("/app");
+      router.push(redirectTo);
     } catch (error) {
       setFormError(error instanceof Error ? error.message : "Unable to log in right now.");
     } finally {
