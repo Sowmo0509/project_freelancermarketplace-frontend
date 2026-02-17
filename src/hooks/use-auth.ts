@@ -22,27 +22,43 @@ export function useAuth() {
     isAuthenticated: false,
   });
 
+  const checkAuth = async () => {
+    try {
+      const session = await getSession();
+      setAuthState({
+        user: session.data?.user || null,
+        isLoading: false,
+        isAuthenticated: !!session.data?.user,
+      });
+    } catch (error) {
+      console.error("Auth check failed:", error);
+      setAuthState({
+        user: null,
+        isLoading: false,
+        isAuthenticated: false,
+      });
+    }
+  };
+
   useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const session = await getSession();
-        setAuthState({
-          user: session.data?.user || null,
-          isLoading: false,
-          isAuthenticated: !!session.data?.user,
-        });
-      } catch (error) {
-        console.error("Auth check failed:", error);
-        setAuthState({
-          user: null,
-          isLoading: false,
-          isAuthenticated: false,
-        });
+    checkAuth();
+    
+    // Listen for storage changes (for cross-tab sync)
+    const handleStorageChange = (e: StorageEvent) => {
+      if (e.key === 'better-auth.session_token') {
+        checkAuth();
       }
     };
 
-    checkAuth();
+    window.addEventListener('storage', handleStorageChange);
+    
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
   }, []);
 
-  return authState;
+  return {
+    ...authState,
+    refreshAuth: checkAuth,
+  };
 }
