@@ -17,6 +17,9 @@ export default function AppDashboardPage() {
             <Link href="/app" className="font-medium text-foreground">
               Home
             </Link>
+            <Link href="/app/profile" className="transition-colors hover:text-foreground">
+              Profile
+            </Link>
             <button className="transition-colors hover:text-foreground">
               Jobs
             </button>
