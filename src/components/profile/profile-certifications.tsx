@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Award, Plus, ExternalLink } from "lucide-react";
+import { Plus, ExternalLink } from "lucide-react";
 import { ProfileSection } from "./profile-section";
 
 export function ProfileCertifications() {
@@ -31,19 +31,13 @@ export function ProfileCertifications() {
   ];
 
   return (
-    <ProfileSection title="Certifications / Licenses">
+    <ProfileSection title="Certifications / Licenses" onAdd={() => {}}>
       <div className="space-y-4">
         {certifications.map((cert, index) => (
           <div key={index} className="flex gap-4">
-            <div className="flex-shrink-0">
-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                <Award className="h-6 w-6 text-primary" />
-              </div>
-            </div>
-            
             <div className="flex-1 space-y-2">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                <h3 className="font-semibold">{cert.name}</h3>
+                <h3 className="font-semibold text-sm">{cert.name}</h3>
                 <Badge variant="outline">{cert.date}</Badge>
               </div>
               
@@ -68,11 +62,6 @@ export function ProfileCertifications() {
             </div>
           </div>
         ))}
-        
-        <Button variant="outline" className="w-full">
-          <Plus className="h-4 w-4 mr-2" />
-          Add Certification
-        </Button>
       </div>
     </ProfileSection>
   );

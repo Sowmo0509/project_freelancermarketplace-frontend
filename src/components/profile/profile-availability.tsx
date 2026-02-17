@@ -7,7 +7,7 @@ import { ProfileSection } from "./profile-section";
 
 export function ProfileAvailability() {
   return (
-    <ProfileSection title="Availability">
+    <ProfileSection title="Availability" onAdd={() => {}}>
       <div className="space-y-4">
         {/* Weekly Hours */}
         <div className="space-y-3">
@@ -56,10 +56,6 @@ export function ProfileAvailability() {
           <div className="text-sm text-muted-foreground">Time Zone</div>
           <div className="font-medium">Pacific Time (PT)</div>
         </div>
-
-        <Button variant="outline" className="w-full">
-          Update Availability
-        </Button>
       </div>
     </ProfileSection>
   );

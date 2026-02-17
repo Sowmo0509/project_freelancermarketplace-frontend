@@ -11,6 +11,7 @@ import { ProfileEducation } from "@/components/profile/profile-education";
 import { ProfileCertifications } from "@/components/profile/profile-certifications";
 import { ProfileLanguages } from "@/components/profile/profile-languages";
 import { ProfileAvailability } from "@/components/profile/profile-availability";
+import { Separator } from "@/components/ui/separator";
 
 export default function ProfilePage() {
   const { user, isLoading } = useAuth();
@@ -43,20 +44,26 @@ export default function ProfilePage() {
         {/* Main Content Container */}
         <div className="bg-card rounded-2xl p-6 mt-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left Column - Main Profile Info */}
-            <div className="lg:col-span-2 space-y-24">
-              <ProfileOverview />
-              <ProfileSkills />
-              <ProfileExperience />
-              <ProfilePortfolio />
+            {/* Left Column - Supporting Info */}
+            <div className="space-y-12">
+              <ProfileEducation />
+              <Separator />
+              <ProfileCertifications />
+              <Separator />
+              <ProfileLanguages />
+              <Separator />
+              <ProfileAvailability />
             </div>
 
-            {/* Right Column - Supporting Info */}
-            <div className="space-y-24">
-              <ProfileEducation />
-              <ProfileCertifications />
-              <ProfileLanguages />
-              <ProfileAvailability />
+            {/* Right Column - Main Profile Info */}
+            <div className="lg:col-span-2 space-y-12">
+              <ProfileOverview />
+              <Separator />
+              <ProfileSkills />
+              <Separator />
+              <ProfileExperience />
+              <Separator />
+              <ProfilePortfolio />
             </div>
           </div>
         </div>

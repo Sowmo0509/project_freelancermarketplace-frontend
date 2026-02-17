@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { MapPin } from "lucide-react";
+import { Plus } from "lucide-react";
 import { ProfileSection } from "./profile-section";
 
 export function ProfileExperience() {
@@ -31,12 +31,10 @@ export function ProfileExperience() {
   ];
 
   return (
-    <ProfileSection title="Employment / Work History">
+    <ProfileSection title="Employment / Work History" onAdd={() => {}}>
       <div className="space-y-4">
         {experiences.map((exp, index) => (
-          <div key={index} className="border-l-2 border-muted pl-4 relative">
-            <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-background border-2 border-muted" />
-            
+          <div key={index} className="pl-4 relative">
             <div className="space-y-2">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                 <h3 className="font-semibold text-lg">{exp.title}</h3>
@@ -45,10 +43,7 @@ export function ProfileExperience() {
               
               <div className="flex items-center gap-2 text-muted-foreground">
                 <span className="font-medium">{exp.company}</span>
-                <div className="flex items-center gap-1">
-                  <MapPin className="h-3 w-3" />
-                  <span className="text-sm">{exp.location}</span>
-                </div>
+                <span className="text-sm">{exp.location}</span>
               </div>
               
               <p className="text-sm text-muted-foreground leading-relaxed">
@@ -57,10 +52,6 @@ export function ProfileExperience() {
             </div>
           </div>
         ))}
-        
-        <Button variant="outline" className="w-full">
-          Add Experience
-        </Button>
       </div>
     </ProfileSection>
   );

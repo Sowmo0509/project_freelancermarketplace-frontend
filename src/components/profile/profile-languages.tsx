@@ -8,7 +8,7 @@ import { ProfileSection } from "./profile-section";
 
 interface Language {
   name: string;
-  proficiency: "Native" | "Fluent" | "Conversational" | "Basic";
+  proficiency: "Native" | "Fluent" | "Conversational" | "Basic" | "Bilingual";
 }
 
 export function ProfileLanguages() {
@@ -16,7 +16,7 @@ export function ProfileLanguages() {
     { name: "English", proficiency: "Native" },
     { name: "Spanish", proficiency: "Fluent" },
     { name: "French", proficiency: "Conversational" },
-    { name: "Mandarin", proficiency: "Basic" }
+    { name: "Bengali", proficiency: "Native" }
   ]);
 
   const getProficiencyColor = (proficiency: Language['proficiency']) => {
@@ -25,6 +25,7 @@ export function ProfileLanguages() {
       case "Fluent": return "secondary";
       case "Conversational": return "outline";
       case "Basic": return "outline";
+      case "Bilingual": return "secondary";
       default: return "outline";
     }
   };
@@ -34,37 +35,27 @@ export function ProfileLanguages() {
   };
 
   return (
-    <ProfileSection title="Languages">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
+    <ProfileSection title="Languages" onAdd={() => {}}>
+      <div className="space-y-2 mb-3">
         {languages.map((lang, index) => (
-          <div key={index} className="flex items-center justify-between p-3 border rounded-lg">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
-                <Languages className="h-4 w-4 text-primary" />
-              </div>
-              <div>
-                <div className="font-medium">{lang.name}</div>
-                <Badge variant={getProficiencyColor(lang.proficiency)} className="text-xs mt-1">
-                  {lang.proficiency}
-                </Badge>
+          <div key={index} className="flex items-center justify-between p-2 border rounded-lg">
+            <div>
+              <div className="font-medium text-sm">{lang.name}</div>
+              <div className="text-xs text-muted-foreground">
+                {lang.proficiency}
               </div>
             </div>
             <Button
               size="sm"
               variant="ghost"
               onClick={() => removeLanguage(index)}
-              className="h-8 w-8 p-0 opacity-0 hover:opacity-100 transition-opacity"
+              className="h-6 w-6 p-0 opacity-0 hover:opacity-100 transition-opacity"
             >
               ×
             </Button>
           </div>
         ))}
       </div>
-      
-      <Button variant="outline" className="w-full">
-        <Plus className="h-4 w-4 mr-2" />
-        Add Language
-      </Button>
     </ProfileSection>
   );
 }

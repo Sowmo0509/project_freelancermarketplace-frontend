@@ -30,7 +30,7 @@ export function ProfileSkills() {
   };
 
   return (
-    <ProfileSection title="Skill Tags">
+    <ProfileSection title="Skill Tags" onAdd={() => {}}>
       <div className="flex flex-wrap gap-2 mb-3">
         {skills.map((skill, index) => (
           <Badge
@@ -64,7 +64,7 @@ export function ProfileSkills() {
               className="h-8"
             />
           </div>
-          <Button size="sm" onClick={addSkill} disabled={!newSkill.trim()}>
+          <Button size="sm" onClick={addSkill} disabled={!newSkill.trim()} className="h-8 w-8 rounded-full p-0">
             <Plus className="h-4 w-4" />
           </Button>
         </div>

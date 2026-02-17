@@ -34,7 +34,7 @@ export function ProfilePortfolio() {
   ];
 
   return (
-    <ProfileSection title="Portfolio">
+    <ProfileSection title="Portfolio" onAdd={() => {}}>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
         {portfolioItems.map((item) => (
           <div key={item.id} className="group relative overflow-hidden rounded-lg border">
@@ -76,11 +76,6 @@ export function ProfilePortfolio() {
           </div>
         ))}
       </div>
-      
-      <Button variant="outline" className="w-full">
-        <Plus className="h-4 w-4 mr-2" />
-        Add Portfolio Item
-      </Button>
     </ProfileSection>
   );
 }
