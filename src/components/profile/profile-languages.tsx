@@ -38,11 +38,12 @@ export function ProfileLanguages() {
     <ProfileSection title="Languages" onAdd={() => {}}>
       <div className="space-y-2 mb-3">
         {languages.map((lang, index) => (
-          <div key={index} className="flex items-center justify-between p-2 border rounded-lg">
+          <div key={index} className="flex items-center justify-between">
             <div>
-              <div className="font-medium text-sm">{lang.name}</div>
-              <div className="text-xs text-muted-foreground">
+              <div className="font-medium text-sm">{lang.name}:
+              <span className="text-muted-foreground ml-1">
                 {lang.proficiency}
+              </span>
               </div>
             </div>
             <Button

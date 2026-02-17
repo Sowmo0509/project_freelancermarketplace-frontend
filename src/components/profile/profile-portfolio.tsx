@@ -67,7 +67,7 @@ export function ProfilePortfolio() {
               
               <div className="flex flex-wrap gap-1">
                 {item.tags.map((tag, index) => (
-                  <Badge key={index} variant="secondary" className="text-xs">
+                  <Badge key={index} variant="secondary" className="text-[10px]">
                     {tag}
                   </Badge>
                 ))}

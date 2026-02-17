@@ -19,12 +19,12 @@ export function HeroSection({ activeView, content, statements }: HeroSectionProp
         <div className="flex flex-col gap-6 sm:gap-7">
           <div className="flex flex-col gap-3 sm:gap-4">
             <p className="text-xs font-semibold uppercase tracking-[0.28em] text-muted-foreground">{activeView === "client" ? "Client promise" : "Freelancer promise"}</p>
-            <h2 className="text-3xl font-semibold text-foreground sm:text-5xl lg:text-6xl">{content.title}</h2>
-            <p className="text-base text-muted-foreground sm:text-xl lg:text-2xl">{content.subtitle}</p>
+            <h2 className="text-3xl font-semibold text-foreground sm:text-5xl">{content.title}</h2>
+            <p className="text-base text-muted-foreground sm:text-xl">{content.subtitle}</p>
           </div>
           <div className="flex flex-col gap-3 sm:gap-3.5">
             {statements.map((statement) => (
-              <h3 key={statement} className="text-base font-semibold text-foreground sm:text-lg lg:text-xl">
+              <h3 key={statement} className="text-base font-semibold text-foreground sm:text-lg">
                 {statement}
               </h3>
             ))}

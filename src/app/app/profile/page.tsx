@@ -45,7 +45,7 @@ export default function ProfilePage() {
         <div className="bg-card rounded-2xl p-6 mt-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Left Column - Supporting Info */}
-            <div className="space-y-12">
+            <div className="space-y-8">
               <ProfileEducation />
               <Separator />
               <ProfileCertifications />
@@ -56,7 +56,7 @@ export default function ProfilePage() {
             </div>
 
             {/* Right Column - Main Profile Info */}
-            <div className="lg:col-span-2 space-y-12">
+            <div className="lg:col-span-2 space-y-8">
               <ProfileOverview />
               <Separator />
               <ProfileSkills />

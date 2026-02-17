@@ -29,7 +29,7 @@ export function ProfileEducation() {
         {education.map((edu, index) => (
           <div key={index} className="flex gap-4">
             <div className="flex-1 space-y-2">
-              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
                 <h3 className="font-semibold">{edu.degree}</h3>
                 <Badge variant="outline">{edu.period}</Badge>
               </div>
