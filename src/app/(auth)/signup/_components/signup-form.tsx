@@ -10,6 +10,7 @@ import { PasswordInput, PasswordInputStrengthChecker } from "@/components/ui/pas
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import { apiClient } from "@/lib/api-client";
 
 type Role = "freelancer" | "client";
 
@@ -89,27 +90,19 @@ export function SignUpForm({ country, onCountryChange, countryOptions, role, onS
     setIsSubmitting(true);
 
     try {
-      const apiBase = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
-      const response = await fetch(`${apiBase}/auth/signup`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({
-          firstName: parsed.data.firstName,
-          lastName: parsed.data.lastName,
-          email: parsed.data.email,
-          password: parsed.data.password,
-          country: parsed.data.country,
-          role: parsed.data.role,
-          marketingOptIn: parsed.data.marketingOptIn,
-        }),
+      const response = await apiClient.post("/auth/signup", {
+        firstName: parsed.data.firstName,
+        lastName: parsed.data.lastName,
+        email: parsed.data.email,
+        password: parsed.data.password,
+        country: parsed.data.country,
+        role: parsed.data.role,
+        marketingOptIn: parsed.data.marketingOptIn,
       });
 
-      const responseBody = await response.json().catch(() => null);
+      const responseBody = response.data as { message?: string } | null;
 
-      if (!response.ok) {
+      if (response.status >= 400) {
         setFormError(responseBody?.message ?? "Unable to create account.");
         return;
       }

@@ -8,6 +8,7 @@ import { SignUpHeader } from "@/app/(auth)/signup/_components/signup-header";
 import { SignUpRoleToggle } from "@/app/(auth)/signup/_components/signup-role-toggle";
 import { SignUpForm } from "@/app/(auth)/signup/_components/signup-form";
 import { VerificationSentSection } from "@/app/(auth)/signup/_components/verification-sent-section";
+import { apiClient } from "@/lib/api-client";
 
 type Role = "freelancer" | "client";
 
@@ -53,17 +54,11 @@ export default function SignUpPage() {
     const nextCooldown = resendCount === 0 ? 30 : 120;
 
     try {
-      const apiBase = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
-      const response = await fetch(`${apiBase}/auth/resend-verification`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        credentials: "include",
-        body: JSON.stringify({ email: verificationEmail }),
+      const response = await apiClient.post("/auth/resend-verification", {
+        email: verificationEmail,
       });
 
-      if (!response.ok) {
+      if (response.status >= 400) {
         toast.error("Unable to resend verification email.");
         return;
       }

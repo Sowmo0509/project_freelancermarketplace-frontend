@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import { AuthLayout } from "@/app/(auth)/_components/auth-layout";
 import { Button } from "@/components/ui/button";
+import { apiClient } from "@/lib/api-client";
 
 type Status = "idle" | "verifying" | "success" | "error";
 
@@ -25,14 +26,11 @@ export function VerifyEmailClient() {
       try {
         setStatus("verifying");
 
-        const apiBase = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:4000";
-        const url = new URL("/api/auth/verify-email", apiBase);
-        url.searchParams.set("token", token);
-        url.searchParams.set("callbackURL", "/");
-
-        const response = await fetch(url.toString(), {
-          method: "GET",
-          credentials: "include",
+        const response = await apiClient.get("/api/auth/verify-email", {
+          params: {
+            token,
+            callbackURL: "/",
+          },
         });
 
         if (response.status >= 400 && response.status !== 401) {
