@@ -2,6 +2,7 @@
 
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import Link from "next/link";
+import { toast } from "sonner";
 import { z } from "zod";
 import { Combobox, ComboboxContent, ComboboxEmpty, ComboboxInput, ComboboxItem, ComboboxList } from "@/components/ui/combobox";
 import { Input } from "@/components/ui/input";
@@ -17,6 +18,7 @@ type SignUpFormProps = {
   onCountryChange: (value: string) => void;
   countryOptions: string[];
   role: Role;
+  onSuccess?: (email: string) => void;
 };
 
 const signUpSchema = z
@@ -40,7 +42,7 @@ const signUpSchema = z
 
 type SignUpValues = z.infer<typeof signUpSchema>;
 
-export function SignUpForm({ country, onCountryChange, countryOptions, role }: SignUpFormProps) {
+export function SignUpForm({ country, onCountryChange, countryOptions, role, onSuccess }: SignUpFormProps) {
   const [values, setValues] = useState<Omit<SignUpValues, "country" | "role" | "termsAccepted" | "marketingOptIn">>({
     firstName: "",
     lastName: "",
@@ -52,7 +54,6 @@ export function SignUpForm({ country, onCountryChange, countryOptions, role }: S
   const [marketingOptIn, setMarketingOptIn] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formError, setFormError] = useState("");
-  const [formSuccess, setFormSuccess] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const updateValue = (key: keyof typeof values) => (event: ChangeEvent<HTMLInputElement>) => {
@@ -62,7 +63,6 @@ export function SignUpForm({ country, onCountryChange, countryOptions, role }: S
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setFormError("");
-    setFormSuccess("");
 
     const payload: SignUpValues = {
       ...values,
@@ -114,7 +114,8 @@ export function SignUpForm({ country, onCountryChange, countryOptions, role }: S
         return;
       }
 
-      setFormSuccess("Account created successfully.");
+      toast.success("Account created successfully.");
+      onSuccess?.(parsed.data.email);
     } catch (error) {
       setFormError(error instanceof Error ? error.message : "Unable to create account.");
     } finally {
@@ -186,7 +187,6 @@ export function SignUpForm({ country, onCountryChange, countryOptions, role }: S
         </div>
       </div>
       {formError ? <p className="text-sm text-destructive">{formError}</p> : null}
-      {formSuccess ? <p className="text-sm text-primary">{formSuccess}</p> : null}
       <Button className="h-11 w-full" disabled={isSubmitting}>
         {isSubmitting ? "Creating account..." : "Create account"}
       </Button>
