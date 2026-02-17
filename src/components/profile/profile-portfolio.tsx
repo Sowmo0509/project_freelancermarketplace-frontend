@@ -1,9 +1,9 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Edit, Plus, Image as ImageIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ExternalLink, Plus, Image as ImageIcon } from "lucide-react";
+import { ProfileSection } from "./profile-section";
 
 export function ProfilePortfolio() {
   const portfolioItems = [
@@ -34,61 +34,53 @@ export function ProfilePortfolio() {
   ];
 
   return (
-    <Card>
-      <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle>Portfolio</CardTitle>
-        <Button size="sm" variant="ghost">
-          <Edit className="h-4 w-4" />
-        </Button>
-      </CardHeader>
-      <CardContent className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {portfolioItems.map((item) => (
-            <div key={item.id} className="group relative overflow-hidden rounded-lg border">
-              {/* Project Image */}
-              <div className="aspect-video bg-muted flex items-center justify-center">
-                <ImageIcon className="h-12 w-12 text-muted-foreground" />
+    <ProfileSection title="Portfolio">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+        {portfolioItems.map((item) => (
+          <div key={item.id} className="group relative overflow-hidden rounded-lg border">
+            {/* Project Image */}
+            <div className="aspect-video bg-muted flex items-center justify-center">
+              <ImageIcon className="h-12 w-12 text-muted-foreground" />
+            </div>
+            
+            {/* Project Info Overlay */}
+            <div className="p-4 space-y-3">
+              <div className="flex items-start justify-between gap-2">
+                <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">
+                  {item.title}
+                </h3>
+                <Button size="sm" variant="outline" asChild>
+                  <a
+                    href={item.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1"
+                  >
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                </Button>
               </div>
               
-              {/* Project Info Overlay */}
-              <div className="p-4 space-y-3">
-                <div className="flex items-start justify-between gap-2">
-                  <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">
-                    {item.title}
-                  </h3>
-                  <Button size="sm" variant="outline" asChild>
-                    <a
-                      href={item.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-1"
-                    >
-                      <ExternalLink className="h-3 w-3" />
-                    </a>
-                  </Button>
-                </div>
-                
-                <p className="text-sm text-muted-foreground line-clamp-2">
-                  {item.description}
-                </p>
-                
-                <div className="flex flex-wrap gap-1">
-                  {item.tags.map((tag, index) => (
-                    <Badge key={index} variant="secondary" className="text-xs">
-                      {tag}
-                    </Badge>
-                  ))}
-                </div>
+              <p className="text-sm text-muted-foreground line-clamp-2">
+                {item.description}
+              </p>
+              
+              <div className="flex flex-wrap gap-1">
+                {item.tags.map((tag, index) => (
+                  <Badge key={index} variant="secondary" className="text-xs">
+                    {tag}
+                  </Badge>
+                ))}
               </div>
             </div>
-          ))}
-        </div>
-        
-        <Button variant="outline" className="w-full">
-          <Plus className="h-4 w-4 mr-2" />
-          Add Portfolio Item
-        </Button>
-      </CardContent>
-    </Card>
+          </div>
+        ))}
+      </div>
+      
+      <Button variant="outline" className="w-full">
+        <Plus className="h-4 w-4 mr-2" />
+        Add Portfolio Item
+      </Button>
+    </ProfileSection>
   );
 }

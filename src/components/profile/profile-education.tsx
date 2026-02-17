@@ -1,9 +1,9 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { GraduationCap, Edit, Plus } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { GraduationCap, Plus } from "lucide-react";
+import { ProfileSection } from "./profile-section";
 
 export function ProfileEducation() {
   const education = [
@@ -24,14 +24,8 @@ export function ProfileEducation() {
   ];
 
   return (
-    <Card>
-      <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle>Education</CardTitle>
-        <Button size="sm" variant="ghost">
-          <Edit className="h-4 w-4" />
-        </Button>
-      </CardHeader>
-      <CardContent className="space-y-6">
+    <ProfileSection title="Education">
+      <div className="space-y-4">
         {education.map((edu, index) => (
           <div key={index} className="flex gap-4">
             <div className="flex-shrink-0">
@@ -66,7 +60,7 @@ export function ProfileEducation() {
           <Plus className="h-4 w-4 mr-2" />
           Add Education
         </Button>
-      </CardContent>
-    </Card>
+      </div>
+    </ProfileSection>
   );
 }

@@ -1,9 +1,9 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Award, Edit, Plus, ExternalLink } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Award, Plus, ExternalLink } from "lucide-react";
+import { ProfileSection } from "./profile-section";
 
 export function ProfileCertifications() {
   const certifications = [
@@ -31,14 +31,8 @@ export function ProfileCertifications() {
   ];
 
   return (
-    <Card>
-      <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle>Certifications / Licenses</CardTitle>
-        <Button size="sm" variant="ghost">
-          <Edit className="h-4 w-4" />
-        </Button>
-      </CardHeader>
-      <CardContent className="space-y-6">
+    <ProfileSection title="Certifications / Licenses">
+      <div className="space-y-4">
         {certifications.map((cert, index) => (
           <div key={index} className="flex gap-4">
             <div className="flex-shrink-0">
@@ -79,7 +73,7 @@ export function ProfileCertifications() {
           <Plus className="h-4 w-4 mr-2" />
           Add Certification
         </Button>
-      </CardContent>
-    </Card>
+      </div>
+    </ProfileSection>
   );
 }

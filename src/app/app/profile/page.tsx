@@ -36,26 +36,28 @@ export default function ProfilePage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-6xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         {/* Profile Header Section */}
         <ProfileHeader user={user} />
 
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-8">
-          {/* Left Column - Main Profile Info */}
-          <div className="lg:col-span-2 space-y-8">
-            <ProfileOverview />
-            <ProfileSkills />
-            <ProfileExperience />
-            <ProfilePortfolio />
-          </div>
+        {/* Main Content Container */}
+        <div className="bg-card rounded-2xl p-6 mt-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Left Column - Main Profile Info */}
+            <div className="lg:col-span-2 space-y-24">
+              <ProfileOverview />
+              <ProfileSkills />
+              <ProfileExperience />
+              <ProfilePortfolio />
+            </div>
 
-          {/* Right Column - Supporting Info */}
-          <div className="space-y-8">
-            <ProfileEducation />
-            <ProfileCertifications />
-            <ProfileLanguages />
-            <ProfileAvailability />
+            {/* Right Column - Supporting Info */}
+            <div className="space-y-24">
+              <ProfileEducation />
+              <ProfileCertifications />
+              <ProfileLanguages />
+              <ProfileAvailability />
+            </div>
           </div>
         </div>
       </div>

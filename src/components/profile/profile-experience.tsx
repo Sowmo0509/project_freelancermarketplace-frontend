@@ -1,9 +1,9 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Calendar, MapPin, Edit } from "lucide-react";
+import { MapPin } from "lucide-react";
+import { ProfileSection } from "./profile-section";
 
 export function ProfileExperience() {
   const experiences = [
@@ -31,14 +31,8 @@ export function ProfileExperience() {
   ];
 
   return (
-    <Card>
-      <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle>Employment / Work History</CardTitle>
-        <Button size="sm" variant="ghost">
-          <Edit className="h-4 w-4" />
-        </Button>
-      </CardHeader>
-      <CardContent className="space-y-6">
+    <ProfileSection title="Employment / Work History">
+      <div className="space-y-4">
         {experiences.map((exp, index) => (
           <div key={index} className="border-l-2 border-muted pl-4 relative">
             <div className="absolute -left-[9px] top-0 h-4 w-4 rounded-full bg-background border-2 border-muted" />
@@ -67,7 +61,7 @@ export function ProfileExperience() {
         <Button variant="outline" className="w-full">
           Add Experience
         </Button>
-      </CardContent>
-    </Card>
+      </div>
+    </ProfileSection>
   );
 }
